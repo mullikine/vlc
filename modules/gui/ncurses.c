@@ -558,26 +558,11 @@ static void DrawBox(int y, int h, bool color, const char *title)
 
     if (color) color_set(C_BOX, NULL);
 
-    if (!title) title = "";
-    int len = strlen(title);
-
-    if (len > w - 2)
-        len = w - 2;
-
-    mvaddch(y, 0,    ' ');
-    mvhline(y, 1,  ' ', (w-len-2)/2);
-    mvprintw(y, 1+(w-len-2)/2, "%s", title);
-    mvhline(y, (w-len)/2+len,  ' ', w - 1 - ((w-len)/2+len));
-    mvaddch(y, w-1,' ');
-
     for (int i = 0; i < h; i++) {
-        mvaddch(++y, 0,   ' ');
-        mvaddch(y, w-1, ' ');
+        y++;
     }
 
-    mvaddch(++y, 0,   ' ');
-    mvhline(y,   1,   ' ', w - 2);
-    mvaddch(y,   w-1, ' ');
+    y++;
     if (color) color_set(C_DEFAULT, NULL);
 }
 
@@ -1050,9 +1035,9 @@ static int DrawStatus(intf_thread_t *intf)
         padding = 0;
 
     attrset(A_REVERSE);
-    if (sys->color) color_set(C_TITLE, NULL);
-    DrawEmptyLine(y, 0, COLS);
-    mvnprintw(y++, padding / 2, COLS, "%s %s", name, PACKAGE_VERSION);
+    //if (sys->color) color_set(C_TITLE, NULL);
+    //DrawEmptyLine(y, 0, COLS);
+    //mvnprintw(y++, padding / 2, COLS, "%s %s", name, PACKAGE_VERSION);
     if (sys->color) color_set(C_STATUS, NULL);
     attroff(A_REVERSE);
 
