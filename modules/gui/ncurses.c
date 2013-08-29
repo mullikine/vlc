@@ -564,20 +564,20 @@ static void DrawBox(int y, int h, bool color, const char *title)
     if (len > w - 2)
         len = w - 2;
 
-    mvaddch(y, 0,    ACS_ULCORNER);
-    mvhline(y, 1,  ACS_HLINE, (w-len-2)/2);
+    mvaddch(y, 0,    ' ');
+    mvhline(y, 1,  ' ', (w-len-2)/2);
     mvprintw(y, 1+(w-len-2)/2, "%s", title);
-    mvhline(y, (w-len)/2+len,  ACS_HLINE, w - 1 - ((w-len)/2+len));
-    mvaddch(y, w-1,ACS_URCORNER);
+    mvhline(y, (w-len)/2+len,  ' ', w - 1 - ((w-len)/2+len));
+    mvaddch(y, w-1,' ');
 
     for (int i = 0; i < h; i++) {
-        mvaddch(++y, 0,   ACS_VLINE);
-        mvaddch(y, w-1, ACS_VLINE);
+        mvaddch(++y, 0,   ' ');
+        mvaddch(y, w-1, ' ');
     }
 
-    mvaddch(++y, 0,   ACS_LLCORNER);
-    mvhline(y,   1,   ACS_HLINE, w - 2);
-    mvaddch(y,   w-1, ACS_LRCORNER);
+    mvaddch(++y, 0,   ' ');
+    mvhline(y,   1,   ' ', w - 2);
+    mvaddch(y,   w-1, ' ');
     if (color) color_set(C_DEFAULT, NULL);
 }
 
