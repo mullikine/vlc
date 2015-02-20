@@ -1038,6 +1038,7 @@ static int DrawStatus(intf_thread_t *intf)
     //if (sys->color) color_set(C_TITLE, NULL);
     //DrawEmptyLine(y, 0, COLS);
     //mvnprintw(y++, padding / 2, COLS, "%s %s", name, PACKAGE_VERSION);
+    y++;
     if (sys->color) color_set(C_STATUS, NULL);
     attroff(A_REVERSE);
 
